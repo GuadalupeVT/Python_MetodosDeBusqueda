@@ -3,6 +3,9 @@ Created on 29/11/2018
 
 @author: GVT
 '''
+import random
+import copy
+from getpass import _raw_input
 def busquedaSecuencial(unaLista,datoBuscar):
     pos=0
     encontrado=False
@@ -13,6 +16,16 @@ def busquedaSecuencial(unaLista,datoBuscar):
         else:
             pos=pos+1
     return encontrado
-
-listaPrueba=[1,2,32,8,17,19,42,13,0]
-print (busquedaSecuencial (listaPrueba,32) )
+menu=0
+arregloDesordenado = [0]  * 1000
+for i in range(1000):
+    arregloDesordenado[i] = random.randint(0, 100)
+while(menu!=2):
+    print ("_________MENU__________")
+    print ("1. Busqueda Secuencial")
+    menu=int(_raw_input("2. Salir"))
+    
+    if menu==1:
+        datoBuscar=int(_raw_input("Ingresa dato a buscar"))
+        busquedaSecuencial(copy.copy(arregloDesordenado), datoBuscar)
+    
