@@ -5,7 +5,6 @@ Created on 29/11/2018
 '''
 import random
 import copy
-from getpass import _raw_input
 def busquedaSecuencial(unaLista,datoBuscar):
     pos=0
     encontrado=False
@@ -23,9 +22,9 @@ for i in range(1000):
 while(menu!=2):
     print ("_________MENU__________")
     print ("1. Busqueda Secuencial")
-    menu=int(_raw_input("2. Salir"))
+    menu=int(input("2.Salir"))
     
     if menu==1:
-        datoBuscar=int(_raw_input("Ingresa dato a buscar"))
-        busquedaSecuencial(copy.copy(arregloDesordenado), datoBuscar)
+        datoBuscar=int (input("Ingresa dato a buscar"))
+        print (busquedaSecuencial(copy.copy(arregloDesordenado), datoBuscar))
     
