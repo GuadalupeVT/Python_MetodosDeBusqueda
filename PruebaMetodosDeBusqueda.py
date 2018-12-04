@@ -43,18 +43,41 @@ def busquedaBinaria(unaLista,elemento):
         else:
             primero=centro+1
     return -1
+
+class has_table:
+    def __init__(self):
+        self.table=[None]*127
         
+    def Hash_func(self,value):
+        key=0
+        for i in range (0,len(value)):
+            key+=ord(value[i])
+        return key%127
+    
+    def Insert(self,value):
+        hash=self.Hash_func(value)
+        if self.table[hash] is None:
+            self.table[hash]=value
         
+    def Search(self,value):
+        hash=self.Hash_func(value)
+        if self.table[hash] is None:
+            return None
+        else:
+            print("Se encontro el elemento en")
+            return id(self.table[hash])
+    
 
 menu=0
 arregloDesordenado = [0]  * 1000
 for i in range(1000):
     arregloDesordenado[i] = random.randint(0, 100)
-while(menu!=3):
+while(menu!=4):
     print ("_________MENU__________")
     print ("1. Busqueda Secuencial")
     print ("2. Busqueda Binaria")
-    menu=int(input("3.Salir"))
+    print ("3. Funciones Hash")
+    menu=int(input("4.Salir"))
     
     if menu==1:
         datoBuscar=int (input("Ingresa dato a buscar"))
@@ -65,4 +88,11 @@ while(menu!=3):
         ordenamientoPorInsercion(arr)
         a=busquedaBinaria(arr,datoBuscar)
         if(a!=-1):
-            print("Dato encontrado!")  
+            print("Dato encontrado!")
+    if menu==3:
+        H=has_table()
+        H.Insert("Hola")
+        H.Insert("como")
+        H.Insert("estas")
+        print(H.Search("como"))
+    
