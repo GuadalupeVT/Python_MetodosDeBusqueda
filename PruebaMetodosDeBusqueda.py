@@ -91,8 +91,9 @@ while(menu!=4):
             print("Dato encontrado!")
     if menu==3:
         H=has_table()
-        H.Insert("Hola")
-        H.Insert("como")
-        H.Insert("estas")
-        print(H.Search("como"))
+        arr=copy.copy(arregloDesordenado)
+        for i in range (0,len(arr)):
+            H.Insert(str(arr[i]))
+        datoBuscar=str (input("Ingresa dato a buscar"))
+        print(H.Search(datoBuscar))
     
